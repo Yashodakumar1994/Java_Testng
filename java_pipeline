@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+    tools {
+        maven 'MAVN_HOME'
+    }
+    stages {
+        //stage('Install java') {
+          //  steps {
+            //    script {
+              //      sh '''
+                //        apt-get update
+                  //      apt-get install openjdk-17-jdk -y
+                    //    java -version
+
+                    //'''
+                //}
+            //}
+        //}
+
+        stage('Run TestNG') {
+            steps {
+                sh 'mvn clean test -DsuiteXmlFile=testng.xml'
+            }
+    }
+    }
+}
